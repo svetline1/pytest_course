@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 import time
 
 
-
 def test_add_item_to_cart_from_catalog(driver):
     driver.get("https://www.saucedemo.com/")
 
