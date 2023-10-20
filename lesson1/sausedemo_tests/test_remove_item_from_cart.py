@@ -1,22 +1,24 @@
 from selenium.webdriver.common.by import By
-
+from data import MAIN_PAGE, LOGIN, PASSWORD
+from locators import *
+import time
 
 def test_remove_item_from_cart(driver):
-    driver.get("https://www.saucedemo.com/")
+    driver.get(MAIN_PAGE)
 
-    driver.find_element(By.XPATH, '//input[@data-test="username"]').send_keys("standard_user")
+    driver.find_element(By.XPATH, USERNAME_FIELD).send_keys(LOGIN)
 
-    driver.find_element(By.XPATH, '//input[@data-test="password"]').send_keys("secret_sauce")
+    driver.find_element(By.XPATH, PASSWORD_FIELD).send_keys(PASSWORD)
 
-    driver.find_element(By.XPATH, '//input[@data-test="login-button"]').click()
+    driver.find_element(By.XPATH, LOGIN_BUTTON).click()
 
-    driver.find_element(By.CSS_SELECTOR, 'button[data-test="add-to-cart-sauce-labs-backpack"]').click()
+    driver.find_element(By.CSS_SELECTOR, ADD_TO_CART_ITEM_2_BUTTON).click()
 
-    driver.find_element(By.CSS_SELECTOR, 'a[class="shopping_cart_link"]').click()
+    driver.find_element(By.CSS_SELECTOR, CART).click()
 
-    driver.find_element(By.ID, 'remove-sauce-labs-backpack').click()
+    driver.find_element(By.CSS_SELECTOR, REMOVE_FROM_CART_ITEM_2_BUTTON).click()
 
-    assert driver.find_element(By.XPATH, '//div[@class="removed_cart_item"]')
+    assert driver.find_element(By.XPATH, REMOVED_CART_ITEM)
 
 
 

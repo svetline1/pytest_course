@@ -1,22 +1,23 @@
 from selenium.webdriver.common.by import By
 import time
-
+from data import MAIN_PAGE, LOGIN, PASSWORD
+from locators import *
 
 def test_logout(driver):
-    driver.get("https://www.saucedemo.com/")
+    driver.get(MAIN_PAGE)
 
     url_before = driver.current_url
 
-    driver.find_element(By.XPATH, '//input[@data-test="username"]').send_keys("standard_user")
+    driver.find_element(By.XPATH, USERNAME_FIELD).send_keys(LOGIN)
 
-    driver.find_element(By.XPATH, '//input[@data-test="password"]').send_keys("secret_sauce")
+    driver.find_element(By.XPATH, PASSWORD_FIELD).send_keys(PASSWORD)
 
-    driver.find_element(By.XPATH, '//input[@data-test="login-button"]').click()
+    driver.find_element(By.XPATH, LOGIN_BUTTON).click()
 
-    driver.find_element(By.ID, 'react-burger-menu-btn').click()
+    driver.find_element(By.ID, BURGER_MENU).click()
     time.sleep(1)
 
-    driver.find_element(By.ID, 'logout_sidebar_link').click()
+    driver.find_element(By.ID, BURGER_LOG_OUT).click()
 
     assert url_before == driver.current_url
 
