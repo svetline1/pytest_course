@@ -22,3 +22,8 @@ REMOVED_CART_ITEM = '//div[@class="removed_cart_item"]'
 #BURGER MENU
 BURGER_MENU = 'react-burger-menu-btn'
 BURGER_LOG_OUT = 'logout_sidebar_link'
+
+#ITEM CARD
+ITEM_RED_TSHORT_PICTURE = '//img[@alt="Test.allTheThings() T-Shirt (Red)"]'
+ITEM_RED_TSHORT_NAME = '//a[@id="item_3_title_link"]'
+
